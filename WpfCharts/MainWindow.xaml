@@ -1,0 +1,208 @@
+﻿<Window x:Class="WpfCharts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCharts"
+        xmlns:charts="clr-namespace:GravityApps.Mandelkow.MetroCharts;assembly=GravityApps.Mandelkow.MetroCharts"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1024" Width="800">
+
+    <Grid Margin="0" ScrollViewer.CanContentScroll="True" Height="Auto" Width="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0" Margin="0">
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0">
+
+
+                <charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                                                  ChartTitle="Clustered Column Chart"
+                                                  Width="600" Height="400">
+                    <charts:ClusteredColumnChart.Series>
+                        <charts:ChartSeries
+                                SeriesTitle="{Binding ScatterData.SeriesDisplayName}"
+                                DisplayMember="Date"
+                                ItemsSource="{Binding ScatterData.Items}"
+                                ValueMember="Amount" />
+                        <charts:ChartSeries
+                                SeriesTitle="{Binding ScatterData1.SeriesDisplayName}"
+                                DisplayMember="Date"
+                                ItemsSource="{Binding ScatterData1.Items}"
+                                ValueMember="Amount" />
+                    </charts:ClusteredColumnChart.Series>
+                </charts:ClusteredColumnChart>
+                
+
+                <!--<charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}"
+                                             ChartTitle="ClusteredColumnChart"
+                                             ChartSubTitle="Colonnes">
+                    <charts:ClusteredColumnChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:ClusteredColumnChart.Series>
+                </charts:ClusteredColumnChart>-->
+
+                <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}"
+                                          ChartTitle="ClusteredBarChart"
+                                          ChartSubTitle="Lignes">
+                    <charts:ClusteredBarChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:ClusteredBarChart.Series>
+                </charts:ClusteredBarChart>
+
+                <charts:PieChart Style="{StaticResource MinimalChartStyle}"
+                                 ChartTitle="PieChart"
+                                 ChartSubTitle="Camembert">
+                    <charts:PieChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:PieChart.Series>
+                </charts:PieChart>
+
+                <charts:DoughnutChart Style="{StaticResource MinimalChartStyle}"
+                                      ChartTitle="DoughnutChart"
+                                      ChartSubTitle="Anneau">
+                    <charts:DoughnutChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:DoughnutChart.Series>
+                </charts:DoughnutChart>
+
+                <charts:RadialGaugeChart
+                    ChartTitle="RadialGaugeChart"
+                    ChartSubTitle="Sections d'anneau">
+                    <charts:RadialGaugeChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:RadialGaugeChart.Series>
+                </charts:RadialGaugeChart>
+
+                <charts:StackedColumnChart Style="{StaticResource MinimalChartStyle}"
+                                           ChartTitle="StackedColumnChart"
+                                           ChartSubTitle="Pile">
+                    <charts:StackedColumnChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:StackedColumnChart.Series>
+                </charts:StackedColumnChart>
+
+                <charts:StackedBarChart
+                    ChartTitle="StackedBarChart"
+                    ChartSubTitle="Ligne">
+                    <charts:StackedBarChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:StackedBarChart.Series>
+                </charts:StackedBarChart>
+
+
+                <charts:ClusteredBarChart
+                    ChartTitle="ClusteredBarChart"
+                    ChartSubTitle="Lignes">
+                    <charts:ClusteredBarChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                        <charts:ChartSeries
+                            SeriesTitle="Items 2"
+                            ItemsSource="{Binding ListItemsColonnes}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur" />
+                    </charts:ClusteredBarChart.Series>
+                </charts:ClusteredBarChart>
+
+
+                <charts:GAMultipleTypeSeriesChart
+                    ChartTitle="GAMultipleTypeSeriesChart - GALinePiece"
+                    ChartSubTitle="Courbe">
+                    <charts:GAMultipleTypeSeriesChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GALinePiece}" />
+                    </charts:GAMultipleTypeSeriesChart.Series>
+                </charts:GAMultipleTypeSeriesChart>
+
+                <charts:GAMultipleTypeSeriesChart
+                    ChartTitle="GAMultipleTypeSeriesChart - GAScatterPiece"
+                    ChartSubTitle="Nuage de points">
+                    <charts:GAMultipleTypeSeriesChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items"
+                            ItemsSource="{Binding ListItems}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GAScatterPiece}" />
+                    </charts:GAMultipleTypeSeriesChart.Series>
+                </charts:GAMultipleTypeSeriesChart>
+
+                <charts:GAMultipleTypeSeriesChart
+                    ChartTitle="GAMultipleTypeSeriesChart"
+                    ChartSubTitle="Multiple">
+                    <charts:GAMultipleTypeSeriesChart.Series>
+                        <charts:ChartSeries
+                            SeriesTitle="Items 0"
+                            ItemsSource="{Binding ListItemsColonnes}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GAColumnPiece}" />
+                        <charts:ChartSeries
+                            SeriesTitle="Items 1"
+                            ItemsSource="{Binding ListItemsCourbe1}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GALinePiece}" />
+                        <charts:ChartSeries
+                            SeriesTitle="Items 2"
+                            ItemsSource="{Binding ListItemsCourbe2}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GALinePiece}" />
+                        <charts:ChartSeries
+                            SeriesTitle="Items 3"
+                            ItemsSource="{Binding ListItemsCourbe3}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GALinePiece}" />
+                        <charts:ChartSeries
+                            SeriesTitle="Items 4"
+                            ItemsSource="{Binding ListItemsNuage}"
+                            DisplayMember="Libelle"
+                            ValueMember="Valeur"
+                            DataPointType="{x:Type charts:GAScatterPiece}" />
+                    </charts:GAMultipleTypeSeriesChart.Series>
+                </charts:GAMultipleTypeSeriesChart>
+
+            </WrapPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Window>

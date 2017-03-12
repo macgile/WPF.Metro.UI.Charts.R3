@@ -1,0 +1,29 @@
+jQuery(document).ready(function(e){
+    jQuery('#cfbtitle').click(function(){
+        jQuery('#title_help').toggle();
+    })
+    jQuery('#cfbpage_url').click(function(){
+        jQuery('#page_url_help').toggle();
+    })
+    jQuery('#cfbborder').click(function(){
+        jQuery('#border_help').toggle();
+    })
+    jQuery('#cfbwidth').click(function(){
+        jQuery('#width_help').toggle();
+    })
+    jQuery('#cfbheight').click(function(){
+        jQuery('#height_help').toggle();
+    })
+    jQuery('#cfbcolor_scheme').click(function(){
+        jQuery('#color_scheme_help').toggle();
+    })
+    jQuery('#cfbshow_faces').click(function(){
+        jQuery('#show_faces_help').toggle();
+    })
+    jQuery('#cfbstream').click(function(){
+        jQuery('#stream_help').toggle();
+    })
+    jQuery('#cfbheader').click(function(){
+        jQuery('#header_help').toggle();
+    })
+})

@@ -1,0 +1,22 @@
+#cfbtitle, 
+#cfbpage_url, 
+#cfbborder, 
+#cfbwidth,
+#cfbheight,
+#cfbcolor_scheme,
+#cfbshow_faces,
+#cfbstream,
+#cfbheader{
+    font-size: 18px;
+}
+#title_help, 
+#page_url_help, 
+#border_help, 
+#width_help,
+#height_help,
+#color_scheme_help,
+#show_faces_help,
+#stream_help,
+#header_help{
+    display: none;
+}
