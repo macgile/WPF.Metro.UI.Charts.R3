@@ -29,6 +29,12 @@ namespace WpfCharts
 
         public GraphSeriesInformation ScatterData1 => scatterData1;
 
+
+        private GraphSeriesInformation radialSeries;
+
+        public GraphSeriesInformation RadialSeries => radialSeries;
+
+
         private GraphSeriesDataPoint selectedItem;
 
         public GraphSeriesDataPoint SelectedItem
@@ -46,6 +52,7 @@ namespace WpfCharts
 
         public MainWindow()
         {
+           
             InitializeComponent();
 
             listItems = new List<ChartItem>
@@ -83,6 +90,9 @@ namespace WpfCharts
             scatterData1.Items.Add(new GraphSeriesDataPoint("ven", -2.8));
             scatterData1.Items.Add(new GraphSeriesDataPoint("sam", 2));
             scatterData1.Items.Add(new GraphSeriesDataPoint("dim", -5));
+
+            radialSeries = new GraphSeriesInformation { SeriesDisplayName = "Value" };
+            radialSeries.Items.Add(new GraphSeriesDataPoint("Percent finished", 75));
 
 
             DataContext = this;
