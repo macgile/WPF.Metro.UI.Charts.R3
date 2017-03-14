@@ -1,10 +1,5 @@
 ﻿namespace GravityApps.Mandelkow.MetroCharts
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
 #if NETFX_CORE
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Media;
@@ -16,14 +11,16 @@
     using Windows.UI.Xaml.Media.Animation;
     using Windows.UI.Core;
 #else
-    using System.Windows.Media;
-    using System.Windows.Controls;
+
     using System.Windows;
+    using System.Windows.Controls;
+
 #endif
 
 #if SILVERLIGHT
     public class AutoSizeTextBlock : Control
 #else
+
     public class AutoSizeTextBlock : Control
 #endif
     {
@@ -50,7 +47,7 @@
 #elif SILVERLIGHT
             //do nothing
 #else
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(AutoSizeTextBlock), new FrameworkPropertyMetadata(typeof(AutoSizeTextBlock))); 
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(AutoSizeTextBlock), new FrameworkPropertyMetadata(typeof(AutoSizeTextBlock)));
 #endif
         }
 
@@ -72,19 +69,22 @@
             InternalOnApplyTemplate();
         }
 #else
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
             InternalOnApplyTemplate();
         }
+
 #endif
-        Border mainBorder = null;
-        TextBlock mainTextBlock = null;
-        double initialheight = 0.0;
+        private Border mainBorder = null;
+        private TextBlock mainTextBlock = null;
+        private double initialheight = 0.0;
+
         private void InternalOnApplyTemplate()
         {
-            mainBorder = this.GetTemplateChild("PART_Border") as Border; 
-            mainTextBlock = this.GetTemplateChild("PART_TextBlock") as TextBlock;            
+            mainBorder = this.GetTemplateChild("PART_Border") as Border;
+            mainTextBlock = this.GetTemplateChild("PART_TextBlock") as TextBlock;
         }
 
         public Style TextBlockStyle
@@ -110,31 +110,31 @@
             get { return (bool)GetValue(IsWidthExceedsSpaceProperty); }
             set { SetValue(IsWidthExceedsSpaceProperty, value); }
         }
-                
+
         protected override Size MeasureOverride(Size availableSize)
         {
-            Size returnedSize = new Size(0,0); //we do not need space
+            Size returnedSize = new Size(0, 0); //we do not need space
             mainTextBlock.Measure(new Size(double.MaxValue, double.MaxValue));
 
             if (double.IsInfinity(availableSize.Height) || (availableSize.Height > mainTextBlock.DesiredSize.Height))
-            {      
+            {
                 // there is enough space, we return our minimum space
                 returnedSize.Height = mainTextBlock.DesiredSize.Height;
             }
 
-            if (double.IsInfinity(availableSize.Width)  || (availableSize.Width > mainTextBlock.DesiredSize.Width))
+            if (double.IsInfinity(availableSize.Width) || (availableSize.Width > mainTextBlock.DesiredSize.Width))
             {
                 // there is enough space, we return our minimum space
                 returnedSize.Width = mainTextBlock.DesiredSize.Width;
             }
-                       
+
             return returnedSize;
-           
+
             /*
             mainTextBlock.Visibility = Visibility.Collapsed;
             if (availableSize.Height < initialheight)
             {
-                //if the is not enough height for the text, 
+                //if the is not enough height for the text,
                 //return new Size(0, availableSize.Height);
             }
             else
@@ -212,7 +212,6 @@
             //is textblock larger than the available width, then we scale it down
             if (currentWidth > finalSize.Width)
             {
-                
             }
             else
             {

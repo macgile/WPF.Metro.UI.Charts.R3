@@ -14,10 +14,9 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Column="0" Margin="0">
-            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0">
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0" DataContext="{Binding}" >
 
-
-                <charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" 
                                                   ChartTitle="Clustered Column Chart"
                                                   Width="600" Height="400">
                     <charts:ClusteredColumnChart.Series>
@@ -46,7 +45,7 @@
                     </charts:ClusteredColumnChart.Series>
                 </charts:ClusteredColumnChart>-->
 
-                <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" 
                                           ChartTitle="ClusteredBarChart"
                                           ChartSubTitle="Lignes">
                     <charts:ClusteredBarChart.Series>
@@ -58,7 +57,7 @@
                     </charts:ClusteredBarChart.Series>
                 </charts:ClusteredBarChart>
 
-                <charts:PieChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:PieChart Style="{StaticResource MinimalChartStyle}" 
                                  ChartTitle="PieChart"
                                  ChartSubTitle="Camembert">
                     <charts:PieChart.Series>
@@ -70,7 +69,7 @@
                     </charts:PieChart.Series>
                 </charts:PieChart>
 
-                <charts:DoughnutChart Style="{StaticResource MinimalChartStyle}"  DataContext="{Binding}"
+                <charts:DoughnutChart Style="{StaticResource MinimalChartStyle}"  
                                       ChartTitle="DoughnutChart"
                                       ChartSubTitle="Anneau">
                     <charts:DoughnutChart.Series>
@@ -81,21 +80,21 @@
                             ValueMember="Valeur" />
                     </charts:DoughnutChart.Series>
                 </charts:DoughnutChart>
-                
-                    <charts:RadialGaugeChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+
+                <charts:RadialGaugeChart Style="{StaticResource MinimalChartStyle}" 
                         ChartTitle="Guage Chart"
                         ChartSubTitle="Standard Mandelkow Guage Chart"
                         Height="400" Width="400">
-                        <charts:RadialGaugeChart.Series>
-                            <charts:ChartSeries
+                    <charts:RadialGaugeChart.Series>
+                        <charts:ChartSeries
                                 SeriesTitle="{Binding RadialSeries.SeriesDisplayName}"
                                 DisplayMember="Date"
                                 ValueMember="Amount"
                                 ItemsSource="{Binding RadialSeries.Items}" />
-                        </charts:RadialGaugeChart.Series>
-                    </charts:RadialGaugeChart>
+                    </charts:RadialGaugeChart.Series>
+                </charts:RadialGaugeChart>
 
-                <charts:StackedColumnChart Style="{StaticResource MinimalChartStyle}"  DataContext="{Binding}"
+                <charts:StackedColumnChart Style="{StaticResource MinimalChartStyle}"  
                                            ChartTitle="StackedColumnChart"
                                            ChartSubTitle="Pile">
                     <charts:StackedColumnChart.Series>
@@ -107,7 +106,7 @@
                     </charts:StackedColumnChart.Series>
                 </charts:StackedColumnChart>
 
-                <charts:StackedBarChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:StackedBarChart Style="{StaticResource MinimalChartStyle}" 
                     ChartTitle="StackedBarChart"
                     ChartSubTitle="Ligne">
                     <charts:StackedBarChart.Series>
@@ -119,8 +118,7 @@
                     </charts:StackedBarChart.Series>
                 </charts:StackedBarChart>
 
-
-                <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" 
                     ChartTitle="ClusteredBarChart"
                     ChartSubTitle="Lignes">
                     <charts:ClusteredBarChart.Series>
@@ -137,8 +135,7 @@
                     </charts:ClusteredBarChart.Series>
                 </charts:ClusteredBarChart>
 
-
-                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" 
                     ChartTitle="GAMultipleTypeSeriesChart - GALinePiece"
                     ChartSubTitle="Courbe">
                     <charts:GAMultipleTypeSeriesChart.Series>
@@ -151,7 +148,7 @@
                     </charts:GAMultipleTypeSeriesChart.Series>
                 </charts:GAMultipleTypeSeriesChart>
 
-                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" 
                     ChartTitle="GAMultipleTypeSeriesChart - GAScatterPiece"
                     ChartSubTitle="Nuage de points">
                     <charts:GAMultipleTypeSeriesChart.Series>
@@ -164,7 +161,8 @@
                     </charts:GAMultipleTypeSeriesChart.Series>
                 </charts:GAMultipleTypeSeriesChart>
 
-                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                <!--
+                <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}" 
                     ChartTitle="GAMultipleTypeSeriesChart"
                     ChartSubTitle="Multiple">
                     <charts:GAMultipleTypeSeriesChart.Series>
@@ -200,10 +198,9 @@
                             DataPointType="{x:Type charts:GAScatterPiece}" />
                     </charts:GAMultipleTypeSeriesChart.Series>
                 </charts:GAMultipleTypeSeriesChart>
-
+                -->
+                
             </WrapPanel>
-
         </ScrollViewer>
-
     </Grid>
 </Window>
