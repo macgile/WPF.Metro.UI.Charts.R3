@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="1037.91" Width="1479.104"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        xmlns:GAChart="clr-namespace:GravityApps.Mandelkow.MetroCharts;assembly=GravityApps.Mandelkow.MetroCharts"
+        xmlns:charts="clr-namespace:GravityApps.Mandelkow.MetroCharts;assembly=GravityApps.Mandelkow.MetroCharts"
         WindowStartupLocation="CenterScreen" ScrollViewer.CanContentScroll="True">
     <Grid Margin="0" ScrollViewer.CanContentScroll="True" Height="1004" Width="1471">
         <Grid.ColumnDefinitions>
@@ -29,60 +29,60 @@
                         <Run Text="Multiple-series charts and updates to clustered column chart by GravityApps" />
                     </TextBlock>
                 </StackPanel>
-                <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0">
+                <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,5,0,0" DataContext="{Binding}" >
 
-                    <GAChart:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" 
                                                   ChartTitle="Clustered Column Chart"
                                                   ChartSubTitle="Single Series - Now supports negative numbers"
                                                   SelectedItem="{Binding selectedItem, Mode=TwoWay}"
                                                   Width="400" Height="400">
-                        <GAChart:ClusteredColumnChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:ClusteredColumnChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ItemsSource="{Binding scatterData2.Items}"
                                 ValueMember="amount" />
-                        </GAChart:ClusteredColumnChart.Series>
-                    </GAChart:ClusteredColumnChart>
+                        </charts:ClusteredColumnChart.Series>
+                    </charts:ClusteredColumnChart>
 
 
-                    <GAChart:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:ClusteredColumnChart Style="{StaticResource MinimalChartStyle}" 
                                                   ChartTitle="Clustered Column Chart"
                                                   ChartSubTitle="Multi-Series"
                                                   SelectedItem="{Binding selectedItem, Mode=TwoWay}"
                                                   Width="500" Height="400">
-                        <GAChart:ClusteredColumnChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:ClusteredColumnChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData.seriesDisplayName}"
                                 DisplayMember="date"
                                 ItemsSource="{Binding scatterData.Items}"
                                 ValueMember="amount" />
-                            <GAChart:ChartSeries
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData1.seriesDisplayName}"
                                 DisplayMember="date"
                                 ItemsSource="{Binding scatterData1.Items}"
                                 ValueMember="amount" />
-                        </GAChart:ClusteredColumnChart.Series>
-                    </GAChart:ClusteredColumnChart>
+                        </charts:ClusteredColumnChart.Series>
+                    </charts:ClusteredColumnChart>
 
-                    <GAChart:PieChart
+                    <charts:PieChart
                         Style="{StaticResource MinimalChartStyle}"
-                        DataContext="{Binding}"
+                        
                         ChartTitle="Pie Chart"
                         ChartSubTitle="Standard Mandelkow Pie Chart"
                         SelectedItem="{Binding selectedItem, Mode=TwoWay}"
                         Width="350" Height="400">
-                        <GAChart:PieChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:PieChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData2.Items}" />
-                        </GAChart:PieChart.Series>
-                    </GAChart:PieChart>
+                        </charts:PieChart.Series>
+                    </charts:PieChart>
 
 
-                    <GAChart:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}"
+                    <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}"
                                                        Width="400" Height="400"
                                                        DataContext="{Binding ''}"
                                                        ChartTitle="GA Multiple Series Type Chart"
@@ -91,18 +91,18 @@
                                                        HorizontalAlignment="Left" VerticalAlignment="Top"
                                                        SelectedItem="{Binding selectedItem, Mode=TwoWay}">
 
-                        <GAChart:GAMultipleTypeSeriesChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:GAMultipleTypeSeriesChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData3.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData3.Items}"
-                                DataPointType="GAChart:GAColumnPiece" />
+                                DataPointType="charts:GAColumnPiece" />
 
-                        </GAChart:GAMultipleTypeSeriesChart.Series>
-                    </GAChart:GAMultipleTypeSeriesChart>
+                        </charts:GAMultipleTypeSeriesChart.Series>
+                    </charts:GAMultipleTypeSeriesChart>
 
-                    <GAChart:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}"
+                    <charts:GAMultipleTypeSeriesChart Style="{StaticResource MinimalChartStyle}"
                                                        Width="400" Height="400"
                                                        DataContext="{Binding ''}"
                                                        ChartTitle="GA Multiple Series Type Chart"
@@ -111,111 +111,111 @@
                                                        HorizontalAlignment="Left" VerticalAlignment="Top"
                                                        SelectedItem="{Binding selectedItem, Mode=TwoWay}">
 
-                        <GAChart:GAMultipleTypeSeriesChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:GAMultipleTypeSeriesChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="Target Line"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData.Items}"
-                                DataPointType="{x:Type GAChart:GAColumnPiece}" />
-                            <GAChart:ChartSeries
+                                DataPointType="{x:Type charts:GAColumnPiece}" />
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData1.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData.Items}"
-                                DataPointType="{x:Type GAChart:GAScatterPiece}" />
-                            <GAChart:ChartSeries
+                                DataPointType="{x:Type charts:GAScatterPiece}" />
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData.Items}"
-                                DataPointType="{x:Type GAChart:GALinePiece}"
+                                DataPointType="{x:Type charts:GALinePiece}"
                                 RelativeSeriesColour="Previous"
                                 SeriesLegendVisibilty="Collapsed" />
-                            <GAChart:ChartSeries
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData2.Items}"
-                                DataPointType="{x:Type GAChart:GAScatterPiece}"
+                                DataPointType="{x:Type charts:GAScatterPiece}"
                                 DataPointStyle="{StaticResource RectangleFilledStyle}" />
-                            <GAChart:ChartSeries
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData3.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData3.Items}"
-                                DataPointType="{x:Type GAChart:GALinePiece}" />
-                        </GAChart:GAMultipleTypeSeriesChart.Series>
-                    </GAChart:GAMultipleTypeSeriesChart>
+                                DataPointType="{x:Type charts:GALinePiece}" />
+                        </charts:GAMultipleTypeSeriesChart.Series>
+                    </charts:GAMultipleTypeSeriesChart>
 
-                    <GAChart:RadialGaugeChart
+                    <charts:RadialGaugeChart
                         Style="{StaticResource MinimalChartStyle}"
-                        DataContext="{Binding}"
+                        
                         ChartTitle="Guage Chart"
                         ChartSubTitle="Standard Mandelkow Guage Chart"
                         Height="400" Width="400">
-                        <GAChart:RadialGaugeChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:RadialGaugeChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding radialSeries.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding radialSeries.Items}" />
-                        </GAChart:RadialGaugeChart.Series>
-                    </GAChart:RadialGaugeChart>
+                        </charts:RadialGaugeChart.Series>
+                    </charts:RadialGaugeChart>
 
 
-                    <GAChart:StackedColumnChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:StackedColumnChart Style="{StaticResource MinimalChartStyle}" 
                                                 ChartTitle="Stacked Column Chart"
                                                 ChartSubTitle="Doesnt support negative numbers"
                                                 Height="400">
-                        <GAChart:StackedColumnChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:StackedColumnChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData2.Items}" />
-                        </GAChart:StackedColumnChart.Series>
-                    </GAChart:StackedColumnChart>
+                        </charts:StackedColumnChart.Series>
+                    </charts:StackedColumnChart>
 
-                    <GAChart:StackedColumn100Chart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:StackedColumn100Chart Style="{StaticResource MinimalChartStyle}" 
                                                    ChartTitle="Stacked Column 100% Chart"
                                                    ChartSubTitle="Doesnt support negative numbers"
                                                    Height="400">
-                        <GAChart:StackedColumn100Chart.Series>
-                            <GAChart:ChartSeries
+                        <charts:StackedColumn100Chart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData2.Items}" />
-                        </GAChart:StackedColumn100Chart.Series>
-                    </GAChart:StackedColumn100Chart>
+                        </charts:StackedColumn100Chart.Series>
+                    </charts:StackedColumn100Chart>
 
-                    <GAChart:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:ClusteredBarChart Style="{StaticResource MinimalChartStyle}" 
                                                ChartTitle="Clustered Bar Chart"
                                                ChartSubTitle="Single Series - Doesnt support negative numbers"
                                                SelectedItem="{Binding selectedItem, Mode=TwoWay}"
                                                Width="400" Height="400">
-                        <GAChart:ClusteredBarChart.Series>
-                            <GAChart:ChartSeries
+                        <charts:ClusteredBarChart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ItemsSource="{Binding scatterData2.Items}"
                                 ValueMember="amount" />
-                        </GAChart:ClusteredBarChart.Series>
-                    </GAChart:ClusteredBarChart>
+                        </charts:ClusteredBarChart.Series>
+                    </charts:ClusteredBarChart>
 
 
-                    <GAChart:StackedBar100Chart Style="{StaticResource MinimalChartStyle}" DataContext="{Binding}"
+                    <charts:StackedBar100Chart Style="{StaticResource MinimalChartStyle}" 
                                                 ChartTitle="Stacked Bar 100% Chart"
                                                 ChartSubTitle="Doesnt support negative numbers">
-                        <GAChart:StackedBar100Chart.Series>
-                            <GAChart:ChartSeries
+                        <charts:StackedBar100Chart.Series>
+                            <charts:ChartSeries
                                 SeriesTitle="{Binding scatterData2.seriesDisplayName}"
                                 DisplayMember="date"
                                 ValueMember="amount"
                                 ItemsSource="{Binding scatterData2.Items}" />
-                        </GAChart:StackedBar100Chart.Series>
-                    </GAChart:StackedBar100Chart>
+                        </charts:StackedBar100Chart.Series>
+                    </charts:StackedBar100Chart>
 
                 </WrapPanel>
 
@@ -233,7 +233,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid DataContext="{Binding}" Margin="0,0,0,0">
+                        <Grid  Margin="0,0,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="55" />
                                 <ColumnDefinition Width="55 " />
@@ -253,7 +253,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid DataContext="{Binding}">
+                        <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="55 " />
                                 <ColumnDefinition Width="55" />
@@ -272,7 +272,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid DataContext="{Binding}">
+                        <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="55" />
                                 <ColumnDefinition Width="55" />
